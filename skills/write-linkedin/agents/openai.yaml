@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write LinkedIn"
+  short_description: "Transform reviewed blog into LinkedIn draft"
+  default_prompt: "Use $write-linkedin to create a LinkedIn draft from blog-draft.md and blog-review.md."
