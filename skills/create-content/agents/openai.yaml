@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Content"
+  short_description: "Orchestrate the Phase 1 content workflow"
+  default_prompt: "Use $create-content to run the full content workflow for a subject."

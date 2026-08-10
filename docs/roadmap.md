@@ -7,7 +7,7 @@ Build a simple Content Agent prototype using Codex Skills as the runtime. The pu
 Current direction:
 
 ```text
-subject -> research-work + research-resources -> build-evidence-context -> write-blog -> review-blog -> write-linkedin + write-x -> social review/orchestration
+subject -> create-content -> research-work + research-resources -> build-evidence-context -> write-blog -> review-blog -> write-linkedin + write-x
 ```
 
 ## Completed Skills
@@ -19,6 +19,15 @@ subject -> research-work + research-resources -> build-evidence-context -> write
 - `review-blog`: Completed. Reviews `blog-draft.md` against `context-brief.md` and saves `blog-review.md`.
 - `write-linkedin`: Completed. Transforms the reviewed blog into a LinkedIn draft saved as `linkedin-draft.md`.
 - `write-x`: Completed. Transforms the reviewed blog into a single X post or thread saved as `x-draft.md`.
+- `create-content`: Completed. Orchestrates the full Phase 1 workflow from one subject, checks stage status, stops on insufficient evidence or `needs_revision`, and saves `content-run-summary.md`.
+
+## Phase 1 Status
+
+The core Phase 1 Content Agent prototype is complete.
+
+It is functional as a Codex Skills-based workflow: a user can start with one subject, produce grounded research, reduce it into evidence context, draft a canonical blog article, review that article, and generate LinkedIn and X drafts when the review does not block continuation.
+
+Human review remains required before publishing.
 
 ## Artifact Convention
 
@@ -37,24 +46,27 @@ Current research artifacts:
 - `blog-review.md`: Editorial and technical review report from `review-blog`.
 - `linkedin-draft.md`: LinkedIn post draft from `write-linkedin`.
 - `x-draft.md`: X single post or thread draft from `write-x`.
+- `content-run-summary.md`: End-to-end orchestration summary from `create-content`.
 
-## Recommended Next Skill
+## Recommended Next Step
 
-Build `review-social` next.
+Begin Phase 2 with a minimal custom agent runtime spike.
 
 Why this should come next:
 
-- Both first social derivative writers now exist: `write-linkedin` and `write-x`.
-- A single lightweight review skill can evaluate `linkedin-draft.md` and `x-draft.md` against `blog-review.md` and the canonical blog, avoiding duplicate platform-specific review skills for V1.
-- This should happen before orchestration or publishing because social drafts can still exaggerate, lose nuance, or reintroduce rejected claims.
+- Phase 1 now has enough working skill contracts to serve as a reference implementation.
+- The next learning goal is understanding what Codex has been providing as the runtime: state tracking, tool use, stage gating, filesystem operations, and judgment between deterministic workflow steps.
+- A minimal runtime spike can replay the existing artifact-based workflow using a raw LLM API without introducing LangChain, LangGraph, RAG, vector databases, queues, publishing APIs, or social APIs.
 
-Suggested output artifact:
+Suggested Phase 2 scope:
 
 ```text
-social-review.md
+subject -> load workflow config -> run one stage at a time -> write Markdown artifacts -> stop on explicit status gates
 ```
 
-Do not implement `review-social` until explicitly requested.
+Do not implement Phase 2 until explicitly requested.
+
+After the runtime spike, consider `review-social` as the next quality-gate skill for checking `linkedin-draft.md` and `x-draft.md` against the canonical blog and `blog-review.md`.
 
 ## Design Notes
 
@@ -67,4 +79,6 @@ Do not implement `review-social` until explicitly requested.
 - Remember the evaluator limitation: LLM review improves reliability but does not prove correctness; human review remains required.
 - Treat platform-specific social writing as transformation: adapt the reviewed canonical article instead of independently reconstructing the story.
 - Treat controlled generation as a practical constraint system: trusted source content, platform objectives, explicit boundaries, and structured outputs keep social drafts creative but bounded.
+- Treat orchestration as coordination, not capability duplication: the orchestrator should call or reuse focused skills and inspect their artifacts before advancing.
+- Keep deterministic workflow rules separate from agentic decisions: the order of stages is fixed, but continuation depends on evidence quality, missing inputs, review status, and user intent.
 - Avoid RAG, LangChain, LangGraph, vector databases, or custom infrastructure until the workflow proves it needs them.
