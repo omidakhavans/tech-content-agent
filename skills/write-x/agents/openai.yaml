@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write X"
+  short_description: "Transform reviewed blog into X draft"
+  default_prompt: "Use $write-x to create an X draft from blog-draft.md and blog-review.md."

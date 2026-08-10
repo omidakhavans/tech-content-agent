@@ -7,7 +7,7 @@ Build a simple Content Agent prototype using Codex Skills as the runtime. The pu
 Current direction:
 
 ```text
-subject -> research-work + research-resources -> build-evidence-context -> write-blog -> review-blog -> write-linkedin -> other social derivatives
+subject -> research-work + research-resources -> build-evidence-context -> write-blog -> review-blog -> write-linkedin + write-x -> social review/orchestration
 ```
 
 ## Completed Skills
@@ -18,6 +18,7 @@ subject -> research-work + research-resources -> build-evidence-context -> write
 - `write-blog`: Completed. Turns `context-brief.md` into a grounded technical blog draft saved as `blog-draft.md`.
 - `review-blog`: Completed. Reviews `blog-draft.md` against `context-brief.md` and saves `blog-review.md`.
 - `write-linkedin`: Completed. Transforms the reviewed blog into a LinkedIn draft saved as `linkedin-draft.md`.
+- `write-x`: Completed. Transforms the reviewed blog into a single X post or thread saved as `x-draft.md`.
 
 ## Artifact Convention
 
@@ -35,24 +36,25 @@ Current research artifacts:
 - `blog-draft.md`: Canonical long-form article draft from `write-blog`.
 - `blog-review.md`: Editorial and technical review report from `review-blog`.
 - `linkedin-draft.md`: LinkedIn post draft from `write-linkedin`.
+- `x-draft.md`: X single post or thread draft from `write-x`.
 
 ## Recommended Next Skill
 
-Build `review-linkedin` next.
+Build `review-social` next.
 
 Why this should come next:
 
-- `linkedin-draft.md` is a platform-specific transformation and remains a draft.
-- A lightweight review step should check that the LinkedIn version did not reintroduce claims rejected by `blog-review.md`, exaggerate the article, or become generic social content.
-- Reviewing LinkedIn before building X content keeps the derivative branch grounded and gives the user a better first social artifact.
+- Both first social derivative writers now exist: `write-linkedin` and `write-x`.
+- A single lightweight review skill can evaluate `linkedin-draft.md` and `x-draft.md` against `blog-review.md` and the canonical blog, avoiding duplicate platform-specific review skills for V1.
+- This should happen before orchestration or publishing because social drafts can still exaggerate, lose nuance, or reintroduce rejected claims.
 
 Suggested output artifact:
 
 ```text
-linkedin-review.md
+social-review.md
 ```
 
-Do not implement `review-linkedin` until explicitly requested.
+Do not implement `review-social` until explicitly requested.
 
 ## Design Notes
 
@@ -64,4 +66,5 @@ Do not implement `review-linkedin` until explicitly requested.
 - Treat evaluation as its own step: compare generated content against evidence before deriving more content from it.
 - Remember the evaluator limitation: LLM review improves reliability but does not prove correctness; human review remains required.
 - Treat platform-specific social writing as transformation: adapt the reviewed canonical article instead of independently reconstructing the story.
+- Treat controlled generation as a practical constraint system: trusted source content, platform objectives, explicit boundaries, and structured outputs keep social drafts creative but bounded.
 - Avoid RAG, LangChain, LangGraph, vector databases, or custom infrastructure until the workflow proves it needs them.
