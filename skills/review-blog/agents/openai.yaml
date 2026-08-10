@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Blog"
+  short_description: "Review a blog draft against evidence"
+  default_prompt: "Use $review-blog to review blog-draft.md against context-brief.md."

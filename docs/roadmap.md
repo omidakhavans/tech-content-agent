@@ -7,7 +7,7 @@ Build a simple Content Agent prototype using Codex Skills as the runtime. The pu
 Current direction:
 
 ```text
-subject -> research-work + research-resources -> build-evidence-context -> write-blog -> social derivatives -> review
+subject -> research-work + research-resources -> build-evidence-context -> write-blog -> review-blog -> social derivatives
 ```
 
 ## Completed Skills
@@ -16,6 +16,7 @@ subject -> research-work + research-resources -> build-evidence-context -> write
 - `research-resources`: Completed. Researches external or explicitly supplied resources and saves `resources-report.md`.
 - `build-evidence-context`: Completed. Merges research artifacts into a concise, writing-ready `context-brief.md`.
 - `write-blog`: Completed. Turns `context-brief.md` into a grounded technical blog draft saved as `blog-draft.md`.
+- `review-blog`: Completed. Reviews `blog-draft.md` against `context-brief.md` and saves `blog-review.md`.
 
 ## Artifact Convention
 
@@ -31,24 +32,25 @@ Current research artifacts:
 - `resources-report.md`: External/supplied resource evidence from `research-resources`.
 - `context-brief.md`: Reduced, grounded context package from `build-evidence-context`.
 - `blog-draft.md`: Canonical long-form article draft from `write-blog`.
+- `blog-review.md`: Editorial and technical review report from `review-blog`.
 
 ## Recommended Next Skill
 
-Build `review-blog` next.
+Build `write-linkedin` next.
 
 Why this should come next:
 
-- `blog-draft.md` is explicitly a draft and should not become the source for social derivatives until it has been checked.
-- A review step can compare the draft back against `context-brief.md`, flag unsupported claims, remove hype, improve clarity, and produce a cleaner canonical article.
-- Reviewing before derivative generation prevents errors from being amplified into LinkedIn and X posts.
+- The canonical long-form artifact now has a review gate.
+- LinkedIn is the next highest-value derivative because it benefits from the blog's narrative while needing a different structure and hook.
+- `write-linkedin` should consume `blog-draft.md` plus `blog-review.md`, avoid claims flagged by review, and produce platform-appropriate drafts without reopening research.
 
 Suggested output artifact:
 
 ```text
-blog-review.md
+linkedin-draft.md
 ```
 
-Do not implement `review-blog` until explicitly requested.
+Do not implement `write-linkedin` until explicitly requested.
 
 ## Design Notes
 
@@ -57,4 +59,6 @@ Do not implement `review-blog` until explicitly requested.
 - Continue separating source facts, interpretations, and unknowns.
 - Treat context engineering as its own step: select, structure, ground, and reduce research before asking a model to write.
 - Treat grounded generation as its own step: write from `context-brief.md` rather than giving the writer unrestricted freedom to reconstruct the research.
+- Treat evaluation as its own step: compare generated content against evidence before deriving more content from it.
+- Remember the evaluator limitation: LLM review improves reliability but does not prove correctness; human review remains required.
 - Avoid RAG, LangChain, LangGraph, vector databases, or custom infrastructure until the workflow proves it needs them.
