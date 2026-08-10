@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tech Research Work"
+  short_description: "Research local project evidence for a subject"
+  default_prompt: "Use $tech-research-work to research what I worked on for: What I learned while building an AI rewrite feature."
