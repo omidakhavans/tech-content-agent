@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Resources"
+  short_description: "Research supplied resources for a subject"
+  default_prompt: "Use $research-resources to research the resources I used while learning about LLM tool calling."
