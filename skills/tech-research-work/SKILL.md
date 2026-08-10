@@ -1,6 +1,6 @@
 ---
 name: tech-research-work
-description: Research a supplied technical writing subject against local project evidence and produce a structured research report for later content-writing skills. Use when the user asks to investigate what they actually worked on in a repository, gather evidence from source code, Git history, commits, branches, diffs, docs, tests, configuration, local PR artifacts, or architecture notes, and separate verified facts from inference before writing content.
+description: Research a supplied technical writing subject against local project evidence, save Markdown research artifacts under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, and produce a structured report for later content-writing skills. Use when the user asks to investigate what they actually worked on in a repository, gather evidence from source code, Git history, commits, branches, diffs, docs, tests, configuration, local PR artifacts, or architecture notes, and separate verified facts from inference before writing content.
 ---
 
 # Tech Research Work
@@ -22,6 +22,32 @@ Use this as the first step in a larger content workflow:
 - Avoid broad repository reads unless narrow searches fail.
 - Do not use external services unless the user explicitly asks and access is available.
 - Do not modify the target repository while researching.
+- Save research artifacts as Markdown files under the configured content workspace.
+
+## Artifact Storage
+
+Store every research run under:
+
+`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
+
+Use the user-supplied title or subject as the folder name source. Convert it to a filesystem-safe slug:
+
+- Lowercase ASCII when practical.
+- Replace spaces and punctuation with single hyphens.
+- Remove leading, trailing, and repeated hyphens.
+- Keep the slug human-readable.
+- If the folder already exists, reuse it and update the relevant Markdown artifacts unless the user asks for a new versioned folder.
+
+For V1, create at least:
+
+- `research-report.md`: the structured report from `references/report-format.md`.
+
+Create optional Markdown artifacts only when they are useful:
+
+- `evidence-notes.md`: raw search notes, command summaries, or extra evidence that would clutter the main report.
+- `unknowns.md`: unresolved questions when there are many.
+
+Do not store non-Markdown artifacts for this skill unless the user explicitly asks.
 
 ## Workflow
 
@@ -51,6 +77,11 @@ Use this as the first step in a larger content workflow:
    - Include file paths and line numbers where useful.
    - Distinguish verified implementation details from inferred lessons or motivations.
    - Include unknowns instead of filling gaps with guesses.
+8. Save the report.
+   - Create the content artifact folder under `.techcontent`.
+   - Write the main report to `research-report.md`.
+   - Write any optional supporting artifacts as `.md` files.
+   - In the final response, include the saved artifact path and a short summary.
 
 ## Evidence Quality
 
@@ -75,6 +106,6 @@ Start narrow, then expand only when needed:
 
 ## Output Contract
 
-Return only the structured research report unless the user asks for process notes. The report is an input to later writing skills, so optimize it for accuracy, traceability, and reuse rather than polish.
+Save the structured research report to `research-report.md` and return a concise final response with the artifact path and key status. The report is an input to later writing skills, so optimize it for accuracy, traceability, and reuse rather than polish.
 
 Before writing the report, read `references/report-format.md`.

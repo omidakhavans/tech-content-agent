@@ -8,6 +8,7 @@ State the subject exactly as supplied by the user. Add a one-sentence normalized
 
 ## Investigation Scope
 
+- Artifact folder:
 - Repository/project inspected:
 - Branch/current state:
 - Search terms used:
@@ -62,6 +63,14 @@ Provide traceable references:
 - Commit hash and subject.
 - Diff scope.
 - Doc or note path.
+
+## Generated Artifacts
+
+List Markdown files written for this research run:
+
+- `research-report.md`: Main structured report.
+- `evidence-notes.md`: Optional.
+- `unknowns.md`: Optional.
 
 ## Potential Lessons Worth Writing About
 

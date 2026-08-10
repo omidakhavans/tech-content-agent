@@ -4,6 +4,12 @@
 
 Its job is not to write content. Its job is to research a subject against local project evidence and produce a structured report that later writing skills can consume.
 
+Research artifacts are stored under:
+
+```text
+/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/
+```
+
 ## Invocation
 
 Use the skill by naming it and providing a subject:
@@ -21,7 +27,15 @@ Treat the repository as read-only.
 
 ## Output
 
-The skill returns a structured research report with:
+The skill saves Markdown artifacts for each subject. V1 always writes:
+
+```text
+research-report.md
+```
+
+It may also write supporting Markdown files such as `evidence-notes.md` or `unknowns.md` when useful.
+
+The main research report includes:
 
 - Subject
 - Investigation scope
