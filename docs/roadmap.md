@@ -7,7 +7,7 @@ Build a simple Content Agent prototype using Codex Skills as the runtime. The pu
 Current direction:
 
 ```text
-subject -> research-work + research-resources -> build-evidence-context -> writing -> social derivatives -> review
+subject -> research-work + research-resources -> build-evidence-context -> write-blog -> social derivatives -> review
 ```
 
 ## Completed Skills
@@ -15,6 +15,7 @@ subject -> research-work + research-resources -> build-evidence-context -> writi
 - `tech-research-work`: Completed. Researches local project/repository evidence about what was actually built and saves `research-report.md`.
 - `research-resources`: Completed. Researches external or explicitly supplied resources and saves `resources-report.md`.
 - `build-evidence-context`: Completed. Merges research artifacts into a concise, writing-ready `context-brief.md`.
+- `write-blog`: Completed. Turns `context-brief.md` into a grounded technical blog draft saved as `blog-draft.md`.
 
 ## Artifact Convention
 
@@ -29,25 +30,25 @@ Current research artifacts:
 - `research-report.md`: Local project/repository evidence from `tech-research-work`.
 - `resources-report.md`: External/supplied resource evidence from `research-resources`.
 - `context-brief.md`: Reduced, grounded context package from `build-evidence-context`.
+- `blog-draft.md`: Canonical long-form article draft from `write-blog`.
 
 ## Recommended Next Skill
 
-Build `write-blog-draft` next.
+Build `review-blog` next.
 
 Why this should come next:
 
-- Research and context engineering are now separated from writing.
-- `context-brief.md` is the correct input for a first long-form writing skill.
-- A blog draft is the most useful next canonical artifact because LinkedIn and X derivatives should come from a stable long-form draft, not directly from raw research.
-- `write-blog-draft` can focus on structure, narrative, clarity, and audience while relying on `context-brief.md` for facts and claim boundaries.
+- `blog-draft.md` is explicitly a draft and should not become the source for social derivatives until it has been checked.
+- A review step can compare the draft back against `context-brief.md`, flag unsupported claims, remove hype, improve clarity, and produce a cleaner canonical article.
+- Reviewing before derivative generation prevents errors from being amplified into LinkedIn and X posts.
 
 Suggested output artifact:
 
 ```text
-blog-draft.md
+blog-review.md
 ```
 
-Do not implement `write-blog-draft` until explicitly requested.
+Do not implement `review-blog` until explicitly requested.
 
 ## Design Notes
 
@@ -55,4 +56,5 @@ Do not implement `write-blog-draft` until explicitly requested.
 - Prefer small, inspectable Markdown artifacts over hidden state or generated databases.
 - Continue separating source facts, interpretations, and unknowns.
 - Treat context engineering as its own step: select, structure, ground, and reduce research before asking a model to write.
+- Treat grounded generation as its own step: write from `context-brief.md` rather than giving the writer unrestricted freedom to reconstruct the research.
 - Avoid RAG, LangChain, LangGraph, vector databases, or custom infrastructure until the workflow proves it needs them.

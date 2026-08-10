@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Blog"
+  short_description: "Draft a grounded technical blog article"
+  default_prompt: "Use $write-blog to draft a technical blog article from context-brief.md."
