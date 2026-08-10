@@ -7,13 +7,14 @@ Build a simple Content Agent prototype using Codex Skills as the runtime. The pu
 Current direction:
 
 ```text
-subject -> research-work -> research-resources -> evidence/context -> writing -> social derivatives -> review
+subject -> research-work + research-resources -> build-evidence-context -> writing -> social derivatives -> review
 ```
 
 ## Completed Skills
 
 - `tech-research-work`: Completed. Researches local project/repository evidence about what was actually built and saves `research-report.md`.
 - `research-resources`: Completed. Researches external or explicitly supplied resources and saves `resources-report.md`.
+- `build-evidence-context`: Completed. Merges research artifacts into a concise, writing-ready `context-brief.md`.
 
 ## Artifact Convention
 
@@ -27,29 +28,31 @@ Current research artifacts:
 
 - `research-report.md`: Local project/repository evidence from `tech-research-work`.
 - `resources-report.md`: External/supplied resource evidence from `research-resources`.
+- `context-brief.md`: Reduced, grounded context package from `build-evidence-context`.
 
 ## Recommended Next Skill
 
-Build `evidence-context` next.
+Build `write-blog-draft` next.
 
 Why this should come next:
 
-- The first two skills produce separate evidence streams: what was built and what external resources explain.
-- Writing should not begin until those streams are reconciled into a compact content brief.
-- `evidence-context` can merge `research-report.md` and `resources-report.md`, identify the strongest claims, flag weak or unsupported claims, and produce a writing-ready brief.
-- This keeps writing skills simpler because they can consume one curated context artifact instead of re-solving evidence synthesis every time.
+- Research and context engineering are now separated from writing.
+- `context-brief.md` is the correct input for a first long-form writing skill.
+- A blog draft is the most useful next canonical artifact because LinkedIn and X derivatives should come from a stable long-form draft, not directly from raw research.
+- `write-blog-draft` can focus on structure, narrative, clarity, and audience while relying on `context-brief.md` for facts and claim boundaries.
 
 Suggested output artifact:
 
 ```text
-context-brief.md
+blog-draft.md
 ```
 
-Do not implement `evidence-context` until explicitly requested.
+Do not implement `write-blog-draft` until explicitly requested.
 
 ## Design Notes
 
 - Keep Phase 1 skill-first and runtime-light.
 - Prefer small, inspectable Markdown artifacts over hidden state or generated databases.
 - Continue separating source facts, interpretations, and unknowns.
+- Treat context engineering as its own step: select, structure, ground, and reduce research before asking a model to write.
 - Avoid RAG, LangChain, LangGraph, vector databases, or custom infrastructure until the workflow proves it needs them.

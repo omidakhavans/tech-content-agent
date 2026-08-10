@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Evidence Context"
+  short_description: "Build a writing-ready evidence context brief"
+  default_prompt: "Use $build-evidence-context to combine research-report.md and resources-report.md into a context brief."
