@@ -1,100 +1,30 @@
 ---
 name: review-blog
-description: Review a generated technical blog draft against the article itself and the evidence/context package used to generate it. Use when the user asks for an editorial and technical quality gate before social-content generation by reading blog-draft.md and context-brief.md under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, classifying unsupported claims, hallucinations, exaggeration, contradictions, weak explanations, filler, structure issues, source traceability, approval status, and saving blog-review.md without publishing.
+description: Review a technical article against its evidence context and author brief, separating factual findings from editorial judgments and scoring the exact saved revision. Save blog-review.md with the canonical article fingerprint; use before social derivatives or after substantive edits, without publishing or silently rewriting the article.
 ---
 
 # Review Blog
 
-## Overview
+Review `blog-draft.md` against `context-brief.md` and the author's current decisions. A review is fallible evidence-aware evaluation, not proof of correctness or measured SEO performance.
 
-Evaluate `blog-draft.md` against `context-brief.md` and the article itself. Do not publish, generate social posts, or treat the review as proof of correctness.
+## Inputs and Supporting Guidance
 
-Use this after `write-blog` and before social derivative skills:
+Use the supplied subject folder, otherwise `/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`. A missing article requires an article; a missing context brief permits only an explicitly requested limited article-only editorial review.
 
-`research -> evidence context -> write-blog -> review-blog -> social derivatives`
-
-## Core Rules
-
-- Use a structured review process; do not merely answer "is this article good?"
-- Compare article claims against `context-brief.md`.
-- Surface unsupported or incorrect claims clearly.
-- Do not silently rewrite major technical claims to make them pass.
-- Do not invent missing evidence during review.
-- Preserve source/evidence references for findings.
-- Classify findings by severity and type.
-- Remember that an LLM review is not proof of correctness; human review remains required.
-- Save review artifacts as Markdown files under the configured content workspace.
-
-## Artifact Storage
-
-Store every review run under:
-
-`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
-
-Use the user-supplied title or subject as the folder name source. If the user provides an existing `.techcontent` folder path, write into that folder.
-
-For V1, create at least:
-
-- `blog-review.md`: the structured review from `references/review-format.md`.
-
-Create optional Markdown artifacts only when useful:
-
-- `blog-draft-reviewed.md`: a revised draft, only if the user asks for revision or the changes are small and clearly described.
-- `review-change-log.md`: material changes made in a revised draft and why.
-- `claim-check.md`: detailed claim-by-claim mapping when the article has many technical claims.
-
-Do not store non-Markdown artifacts for this skill unless the user explicitly asks.
+Read [author context](../../content-skill-references/author-context.md), [article contract](../../content-skill-references/article-contract.md), [rubric](../../content-skill-references/review-rubric.md) and [dependency policy](../../content-skill-references/dependency-policy.md). Consult [Copy Editing](../../content-skill-dependencies/copy-editing/SKILL.md) for focused editorial passes and [Humanizer](../../content-skill-dependencies/humanizer/SKILL.md) for voice concerns. Use the local audience-comprehension check for reader clarity; simulated reader/persona judgments do not verify facts. Local instructions override conflicting dependency guidance.
 
 ## Workflow
 
-1. Identify the subject and artifact folder.
-   - Prefer an explicit `.techcontent/<title-slug>/` path when supplied.
-   - Otherwise derive the slug from the user-supplied title or subject.
-2. Locate source artifacts.
-   - Read `blog-draft.md`.
-   - Read `context-brief.md`.
-   - If `blog-draft.md` is missing, stop and ask for a draft.
-   - If `context-brief.md` is missing, stop unless the user explicitly requests article-only editorial review; mark that review as limited.
-3. Extract checkable claims from the draft.
-   - Claims about what the user built, tested, learned, or discovered.
-   - Technical explanations and comparisons.
-   - Causal claims, chronology, tradeoffs, failures, and outcomes.
-   - Takeaways and recommendations.
-4. Compare claims to evidence.
-   - Prefer `Verified work evidence` from `context-brief.md` for claims about the user's work.
-   - Use `Verified external knowledge` for concepts, terminology, and general technical explanations.
-   - Treat `Interpretation` as interpretation, not fact.
-   - Flag anything listed under "Claims That Must Not Be Stated As Fact" if it appears as fact in the draft.
-5. Review article quality.
-   - Technical correctness and clarity.
-   - Reasoning quality and whether conclusions follow from evidence.
-   - Missing important context from the brief.
-   - Exaggeration, hype, misleading certainty, generic filler, repetition, and weak takeaways.
-   - Structure, narrative flow, and whether headings/lists help.
-6. Classify findings.
-   - `Critical`: unsupported, incorrect, hallucinated, or materially misleading claim.
-   - `Important`: unclear, weak, exaggerated, or missing context that materially affects quality.
-   - `Improvement`: style, structure, flow, concision, or polish.
-   - `Verified`: important claim successfully grounded in evidence.
-7. Decide approval status.
-   - Use `needs_revision` when Critical findings exist or Important findings would mislead readers.
-   - Use `ready_for_human_review` only when no Critical findings remain and remaining issues are editorial or require human preference.
-   - Never use an LLM approval as a substitute for human review.
-8. Save the review.
-   - Read `references/review-format.md` and follow its structure.
-   - Write the main artifact to `blog-review.md`.
-   - Write optional supporting artifacts only when useful.
-   - If producing a revised draft, preserve visibility into material changes and why.
-   - In the final response, include the saved artifact path, approval status, and top findings.
+1. Resolve the intended canonical article and its author context. Compute the SHA-256 of the saved file. If legacy versions conflict, follow the article contract rather than guessing which is current.
+2. Select scope: full review for a new or untrusted draft; focused revision review when a trustworthy prior review and its exact earlier article are available. Inspect changed claims and their effects on the entire argument. Formatting-only changes need a focused integrity check, not new research.
+3. Compare checkable claims with the context brief. Work claims need verified work evidence; general explanations need appropriate external evidence. Interpretations and hypothetical examples must not become reported outcomes. Record what was actually checked and what was not; do not invent missing evidence or call a cited URL verified without checking its supporting content.
+4. Check the opening, reasoning and conclusion together. Do promised results exist? Does the ending overgeneralize a benchmark or hypothetical story? Separate unsupported facts from legitimate, clearly framed opinions.
+5. Review reader comprehension, technical relevance, voice and structure against the author's brief. Check accepted decisions remain intact. For product or infrastructure articles, examine selection, integration, runtime and payment roles only when relevant to the thesis.
+6. Apply the weighted editorial rubric. Provide a reason for each score and separate the subjective score from factual findings. Do not claim the score predicts ranking, traffic or adoption.
+7. Classify each finding by type (`factual`, `technical reasoning` or `editorial`) and severity: `Critical` for incorrect, unsupported or materially misleading factual claims; `Important` for consequential ambiguity or missing context; `Improvement` for polish. Mark important supported claims `Verified` only within the stated evidence coverage.
+8. Set `needs_revision` for Critical findings or Important findings that would mislead. Otherwise use `ready_for_human_review`, retaining evidence limitations. An `editorial_only` review is never a passing factual gate for derivatives without explicit user direction.
+9. Save `blog-review.md` using [review format](references/review-format.md) and the exact fingerprint contract. Preserve the previous review when replacing it. Do not mutate the article merely to improve its score; route requested revisions through `edit-blog` and review the resulting bytes.
 
-## Evaluation Pattern
+## Output
 
-Generation and evaluation should be separate responsibilities. `write-blog` optimizes for producing a useful draft; `review-blog` checks that draft against evidence and editorial standards. Evidence-aware evaluation can catch hallucinations, unsupported claims, and overconfident phrasing that a free-form quality check might miss.
-
-Limitation: an LLM reviewing another LLM's output is still fallible. The review improves reliability, but it does not prove correctness. Human review remains required before publication.
-
-## Output Contract
-
-Save the structured review to `blog-review.md` and return a concise final response with the artifact path, approval status, and highest-priority findings. Do not publish anything.
-
-Before writing the review, read `references/review-format.md`.
+Return the review path, status, score or scoring limitation, and highest-priority findings. Keep review findings separate from any proposed prose. Do not publish or generate social posts.

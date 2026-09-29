@@ -1,99 +1,31 @@
 # Blog Review Format
 
-Use this structure for `review-blog` output. Keep findings actionable, evidence-aware, and easy for the user to inspect.
+Begin `blog-review.md` with the exact review identity metadata defined in the shared article contract. Compute the actual hash after the article is saved.
 
-## Subject
+## Inputs and Coverage
 
-State the subject or article title.
+Article path, actual SHA-256, context brief, author constraints and other evidence inspected. Identify full, focused-revision or editorial-only scope. For a focused review identify the previous review/article snapshot, what changed, which findings carry forward and what was rechecked. State source access and evidence limitations plainly.
 
-## Input Artifacts
+## Status and Overall Assessment
 
-- Artifact folder:
-- `blog-draft.md`: Present/missing and brief note.
-- `context-brief.md`: Present/missing and brief note.
-- Optional artifacts inspected:
+`needs_revision` or `ready_for_human_review`, rationale, and a concise assessment. An editorial-only scope remains limited even if its prose is ready for human review.
 
-## Approval Status
+## Editorial Index
 
-Use one:
+State that scores are subjective. Use the shared rubric's dimension, weight, score and concrete rationale columns. Compute its weighted total, or omit the total when evidence discipline is not assessed. Do not present the index as factual validation or SEO results.
 
-- `needs_revision`
-- `ready_for_human_review`
+## Factual and Technical Findings
 
-Include a one-sentence rationale.
-
-## Overall Assessment
-
-Summarize the draft's quality, accuracy risk, and readiness in 3-6 bullets.
-
-## Grounding And Accuracy Findings
-
-Classify each finding:
-
-- `Critical`: unsupported, incorrect, hallucinated, or materially misleading claim.
-- `Important`: unclear, weak, exaggerated, or missing context that materially affects quality.
-- `Improvement`: style, structure, flow, concision, or polish.
-- `Verified`: important claim successfully grounded in evidence.
-
-For each finding include:
-
-- Finding:
-- Evidence/reference:
-- Recommendation:
-
-## Technical Quality Findings
-
-Review technical explanations, reasoning, tradeoffs, terminology, and whether conclusions follow from evidence.
+For each finding give severity/type, article passage, evidence or missing evidence, reader impact and recommended correction. List important grounded claims separately with their support. Preserve contradictions and uncertainty; unsupported is different from proven false.
 
 ## Editorial Findings
 
-Review structure, clarity, repetition, filler, tone, headings, takeaways, and narrative flow.
-
-## Unsupported Claims
-
-List claims that should not be stated as fact unless the user provides evidence or edits them.
-
-## Contradictions Or Uncertainty
-
-List contradictions with `context-brief.md`, ambiguous chronology, misleading certainty, or uncertainty that needs human review.
+Address author/audience fit, relevant technical detail, narrative, voice, headings and standalone comprehension. Check the opening promise and final takeaway explicitly. Avoid prescribing a different article purpose from the author's brief.
 
 ## Recommended Changes
 
-Prioritize changes:
+Prioritize must-change findings, worthwhile improvements and optional polish. Explain what the author should personally verify. A review does not silently rewrite the canonical article.
 
-- Must change:
-- Should change:
-- Could improve:
+## Artifacts
 
-## Verified Claims
-
-List important claims that are supported by evidence and safe to preserve.
-
-## Evidence References
-
-Preserve traceability:
-
-- Context brief references:
-- Work evidence references:
-- External source references:
-
-## Revised Draft
-
-Only include this section if a revised draft is produced. Otherwise state: "Not produced."
-
-## Material Change Log
-
-If a revised draft is produced, list what materially changed and why.
-
-## Human Review Notes
-
-State what the user should personally verify before publication.
-
-## Generated Artifacts
-
-List Markdown files written for this review run:
-
-- `blog-review.md`: Main review report.
-- `blog-draft-reviewed.md`: Optional.
-- `review-change-log.md`: Optional.
-- `claim-check.md`: Optional.
+List the saved review and any useful optional `claim-check.md`. Point to requested revisions through `edit-blog`; do not create another competing final article filename.

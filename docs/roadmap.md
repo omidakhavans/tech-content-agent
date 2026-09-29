@@ -16,6 +16,7 @@ subject -> create-content -> research-work + research-resources -> build-evidenc
 - `research-resources`: Completed. Researches external or explicitly supplied resources and saves `resources-report.md`.
 - `build-evidence-context`: Completed. Merges research artifacts into a concise, writing-ready `context-brief.md`.
 - `write-blog`: Completed. Turns `context-brief.md` into a grounded technical blog draft saved as `blog-draft.md`.
+- `edit-blog`: Added. Applies author feedback to the canonical article while preserving accepted content and revision history.
 - `review-blog`: Completed. Reviews `blog-draft.md` against `context-brief.md` and saves `blog-review.md`.
 - `write-linkedin`: Completed. Transforms the reviewed blog into a LinkedIn draft saved as `linkedin-draft.md`.
 - `write-x`: Completed. Transforms the reviewed blog into a single X post or thread saved as `x-draft.md`.
@@ -44,6 +45,7 @@ Current research artifacts:
 - `context-brief.md`: Reduced, grounded context package from `build-evidence-context`.
 - `blog-draft.md`: Canonical long-form article draft from `write-blog`.
 - `blog-review.md`: Editorial and technical review report from `review-blog`.
+- `history/`: Exact prior article and review revisions, named by SHA-256.
 - `linkedin-draft.md`: LinkedIn post draft from `write-linkedin`.
 - `x-draft.md`: X single post or thread draft from `write-x`.
 - `content-run-summary.md`: End-to-end orchestration summary from `create-content`.

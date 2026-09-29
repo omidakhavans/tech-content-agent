@@ -17,6 +17,8 @@ Use this after `review-blog`:
 
 - Use `blog-draft.md` as the primary content source.
 - Use `blog-review.md` as the quality gate; avoid claims flagged as Critical or unsupported.
+- Verify `blog-review.md` names `blog-draft.md` and its SHA-256 matches the current saved article before adapting it. A stale or missing fingerprint is not a passing review.
+- Preserve the article's author context and accepted decisions. A source mention of a product does not establish whether it should be named; carry forward the author's stated treatment for this article.
 - Use `context-brief.md` only when verification is necessary.
 - Preserve technical accuracy and the distinction between personal experience and general technical knowledge.
 - Adapt the content for LinkedIn instead of summarizing mechanically.
@@ -51,11 +53,11 @@ Do not store non-Markdown artifacts for this skill unless the user explicitly as
    - Prefer an explicit `.techcontent/<title-slug>/` path when supplied.
    - Otherwise derive the slug from the user-supplied title or subject.
 2. Locate source artifacts.
-   - Read `blog-draft.md`.
-   - Read `blog-review.md`.
+   - Read `blog-draft.md`, compute its SHA-256, then read the matching `blog-review.md`.
    - Read `context-brief.md` only when a claim needs verification or review status is unclear.
    - If `blog-draft.md` is missing, stop and ask for the canonical blog draft.
    - If `blog-review.md` is missing, stop and ask the user to run `review-blog` first unless they explicitly accept an unreviewed LinkedIn draft.
+   - If the fingerprint is absent, mismatched, editorial-only, or `needs_revision`, follow the derivative gate in the shared article contract. Do not silently fall back to `blog-draft-reviewed.md` or another legacy file.
 3. Extract the strongest LinkedIn angle.
    - Look for one useful engineering lesson, tradeoff, failure, decision, or technical insight.
    - Prefer a specific, grounded learning over broad motivational framing.
@@ -81,6 +83,8 @@ Do not store non-Markdown artifacts for this skill unless the user explicitly as
 ## Content Transformation Principle
 
 Content transformation is different from new content generation. The blog is the canonical, grounded artifact; LinkedIn should adapt that trusted content for a different medium instead of reconstructing the story independently. This reduces inconsistencies and hallucination across channels because later posts inherit the reviewed article's claim boundaries.
+
+Read [the canonical article contract](../../content-skill-references/article-contract.md) and [author context](../../content-skill-references/author-context.md) for revision identity and article-specific constraints.
 
 ## Output Contract
 

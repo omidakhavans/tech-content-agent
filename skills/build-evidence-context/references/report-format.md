@@ -6,6 +6,19 @@ Use this structure for `build-evidence-context` output. Keep it concise, high-si
 
 State the subject exactly as supplied by the user. Add a one-sentence normalized interpretation only if needed.
 
+## Author Context
+
+Carry forward explicit, article-specific constraints from the request, conversation and supplied samples. Include only relevant fields; distinguish stated preferences from inference and leave material unknowns open. Never convert one article's preference into a permanent author rule.
+
+- Audience and desired takeaway:
+- Article purpose/type:
+- Brand/product treatment (include, foreground, anonymize, omit or unresolved):
+- Voice and technical depth:
+- Length, structure and citation preferences:
+- Accepted content to preserve and choices to avoid:
+- Story basis (verified work, hypothetical, sourced example or none):
+- Material questions/assumptions:
+
 ## Input Artifacts
 
 - Artifact folder:

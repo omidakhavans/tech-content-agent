@@ -1,54 +1,15 @@
 # Blog Draft Format
 
-Use this structure for `write-blog` output. Keep the article readable, technically grounded, and easy for the user to review.
+`blog-draft.md` contains the current publishable article: one title, an optional subtitle, prose and useful descriptive headings. Match the author's intended structure and length; do not embed workflow reports in the article.
 
-## Title
+Keep citations near the claims they support, or follow the author's requested citation style. Preserve the evidence trail in `draft-notes.md` when local paths, claim maps or research details would interrupt the article. Do not force a takeaways section or a particular narrative on every piece.
 
-Provide one clear working title.
+`draft-notes.md`, when needed, records:
 
-## Subtitle
+- Author Context if not already in `context-brief.md`.
+- Input brief and source/evidence references used.
+- Unresolved claims, assumptions and personal details needing confirmation.
+- Material writing choices, accepted/rejected decisions and version normalization.
+- Review status: new draft or revised article requiring review.
 
-Optional. Include only if it clarifies the article promise.
-
-## Article Draft
-
-Write a high-quality technical blog draft.
-
-Guidance:
-
-- Sound like an experienced engineer documenting real engineering work.
-- Use the first person only when supported by the context brief.
-- Explain relevant concepts where they help the reader understand the work.
-- Distinguish the user's experience from general technical knowledge.
-- Include meaningful failures, tradeoffs, or constraints when supported.
-- Avoid hype, exaggerated claims, generic filler, and unsupported certainty.
-- Avoid excessive headings and list-heavy writing.
-
-## Key Technical Takeaways
-
-List the strongest takeaways a reader should remember. Keep them grounded in the article and context brief.
-
-## Sources/Evidence Used
-
-Preserve the evidence trail from `context-brief.md`:
-
-- Work evidence:
-- External sources:
-- Context brief sections used:
-
-## Remaining Uncertainty Or Claims Requiring Review
-
-List anything the user should verify before publishing:
-
-- Unsupported or weak claims:
-- Ambiguous chronology:
-- Missing details:
-- Phrasing that needs personal confirmation:
-
-## Generated Artifacts
-
-List Markdown files written for this writing run:
-
-- `blog-draft.md`: Main article draft.
-- `draft-notes.md`: Optional.
-- `review-questions.md`: Optional.
+Keep an existing article's format unless the author requests restructuring or the task requires it. When revising, preserve history according to the shared article contract.

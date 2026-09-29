@@ -50,6 +50,8 @@ needs_revision
 ready_for_human_review
 ```
 
+The review begins with the canonical article filename, its SHA-256 fingerprint, review scope and status. Any byte change makes the review stale. Social-writing skills require a matching fingerprint before treating the review as a passing gate. The editorial index is subjective; it does not measure search rankings, traffic or correctness. A limited article-only review must say what could not be checked.
+
 ## Evaluator Pattern Note
 
 Generation and evaluation are separate jobs. `write-blog` creates a draft; `review-blog` checks it against evidence and editorial standards. Evidence-aware review can reduce hallucination risk by catching unsupported claims and overconfident phrasing.

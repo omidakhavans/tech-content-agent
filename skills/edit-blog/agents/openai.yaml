@@ -1,0 +1,4 @@
+interface:
+  display_name: "Edit Blog"
+  short_description: "Revise a blog while preserving voice and evidence"
+  default_prompt: "Use $edit-blog to apply my feedback and save the current canonical article."

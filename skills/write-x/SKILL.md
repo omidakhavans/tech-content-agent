@@ -17,6 +17,8 @@ Use this after `review-blog`:
 
 - Use `blog-draft.md` as the primary content source.
 - Use `blog-review.md` as the quality gate; avoid claims flagged as Critical or unsupported.
+- Verify `blog-review.md` names `blog-draft.md` and its SHA-256 matches the current saved article before adapting it. A stale or missing fingerprint is not a passing review.
+- Preserve the article's author context and accepted decisions. A source mention of a product does not establish whether it should be named; carry forward the author's stated treatment for this article.
 - Use `context-brief.md` only when verification is necessary.
 - Preserve technical accuracy and the user's engineering perspective.
 - Adapt the content for X instead of merely shortening the blog.
@@ -52,11 +54,11 @@ Do not store non-Markdown artifacts for this skill unless the user explicitly as
    - Prefer an explicit `.techcontent/<title-slug>/` path when supplied.
    - Otherwise derive the slug from the user-supplied title or subject.
 2. Locate source artifacts.
-   - Read `blog-draft.md`.
-   - Read `blog-review.md`.
+   - Read `blog-draft.md`, compute its SHA-256, then read the matching `blog-review.md`.
    - Read `context-brief.md` only when a claim needs verification or review status is unclear.
    - If `blog-draft.md` is missing, stop and ask for the canonical blog draft.
    - If `blog-review.md` is missing, stop and ask the user to run `review-blog` first unless they explicitly accept an unreviewed X draft.
+   - If the fingerprint is absent, mismatched, editorial-only, or `needs_revision`, follow the derivative gate in the shared article contract. Do not silently fall back to `blog-draft-reviewed.md` or another legacy file.
 3. Extract the strongest X-sized insight.
    - Look for one concrete engineering lesson, technical discovery, tradeoff, failure, or decision.
    - Prefer specificity over broad inspiration.
@@ -88,5 +90,7 @@ Controlled generation constrains creative output with trusted source content, pl
 ## Output Contract
 
 Save the X draft to `x-draft.md` and return a concise final response with the artifact path, recommended format, source inputs used, and any claims requiring human attention. The status is always `draft_for_review`.
+
+Read [the canonical article contract](../../content-skill-references/article-contract.md) and [author context](../../content-skill-references/author-context.md) for revision identity and article-specific constraints.
 
 Before writing the draft, read `references/draft-format.md`.

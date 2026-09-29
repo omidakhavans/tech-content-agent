@@ -88,9 +88,10 @@ Component skills produce:
    - If it reports serious uncertainty, unsupported core claims, or no credible article angle, stop and surface the issue.
 6. Run `write-blog`.
    - Generate only from `context-brief.md`.
+   - Preserve the workflow's verified local work requirement. An author context or source-backed opinion angle does not count as evidence that the user built, tested or experienced something.
    - If no blog draft is produced, stop.
 7. Run `review-blog`.
-   - Inspect `blog-review.md`.
+   - Inspect `blog-review.md` and ensure its recorded article hash matches the current `blog-draft.md`.
    - If approval status is `needs_revision`, stop before social drafts and explain what needs attention.
    - Continue only when status is `ready_for_human_review` or the user explicitly directs a degraded path.
 8. Run `write-linkedin`.

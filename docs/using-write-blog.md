@@ -32,6 +32,8 @@ The skill expects:
 context-brief.md
 ```
 
+The context brief should carry an article-specific `Author Context`: intended reader and takeaway, article type, brand/product treatment, voice and technical depth, story basis, and choices to preserve. A product appearing in source material does not decide whether to name it. The author’s current direction does. `write-blog` can write an explainer or source-backed opinion without claiming local experience when explicitly requested; the `create-content` pipeline still requires verified local-work evidence before writing.
+
 It should not research the repository, inspect external resources, publish to WordPress, or generate social posts.
 
 ## Output
@@ -43,6 +45,8 @@ blog-draft.md
 ```
 
 It may also save `draft-notes.md` or `review-questions.md` when useful.
+
+Use `edit-blog` for later feedback on an existing article. `blog-draft.md` remains the canonical filename; each edit preserves the earlier bytes in `history/` and makes the existing review stale until checked against the new revision.
 
 ## Grounded Generation Note
 
