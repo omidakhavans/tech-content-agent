@@ -7,7 +7,7 @@ Its job is not to write content. Its job is to read `research-report.md` and `re
 Context artifacts are stored under:
 
 ```text
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/
+<content-workspace>/.techcontent/<title-slug>/
 ```
 
 ## Invocation
@@ -21,7 +21,7 @@ Use $build-evidence-context for: What I learned while building an AI rewrite fea
 If the artifact folder already exists, you can point to it directly:
 
 ```text
-Use $build-evidence-context with /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/what-i-learned-while-building-an-ai-rewrite-feature
+Use $build-evidence-context with <content-workspace>/.techcontent/what-i-learned-while-building-an-ai-rewrite-feature
 ```
 
 ## Input

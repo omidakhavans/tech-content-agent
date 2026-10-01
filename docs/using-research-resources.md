@@ -7,7 +7,7 @@ Its job is not to write content. Its job is to inspect external or explicitly su
 Research artifacts are stored under:
 
 ```text
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/
+<content-workspace>/.techcontent/<title-slug>/
 ```
 
 ## Invocation

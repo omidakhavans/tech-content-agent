@@ -46,6 +46,10 @@ description: What this page explains.
 
 The page is discovered by Fumadocs and appears in the documentation sidebar. Keep diagrams as Mermaid fences when they explain a real relationship, and keep commands grounded in repository behavior.
 
+## Security review
+
+Because the site is public, documentation changes require the same review as code changes. Do not publish real home-directory paths, usernames, internal URLs, credentials, private research, or unsanitized `.techcontent` artifacts. Codex and Claude guidance is centralized in `AGENTS.md`, `CLAUDE.md`, and `SECURITY.md`; CI also audits dependencies and checks tracked files for obvious local paths and credential patterns.
+
 ## GitHub Pages and future hosting
 
 GitHub Actions sets `GITHUB_ACTIONS=true` during deployment. `next.config.mjs` derives the project-site `basePath` from `GITHUB_REPOSITORY`, while local development stays at `/`. Next.js `Link` handles the base path for internal navigation.

@@ -1,6 +1,6 @@
 ---
 name: write-x
-description: Transform a reviewed canonical technical blog article into X/Twitter content drafts. Use when the user asks to create a single X post or coherent thread from blog-draft.md and blog-review.md under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, preserving technical accuracy, adapting to X, avoiding unsupported reviewed claims, selecting single vs thread format, saving x-draft.md, and not researching, rewriting the blog, generating LinkedIn content, publishing, scheduling, or using X APIs.
+description: Transform a reviewed canonical technical blog article into X/Twitter content drafts. Use when the user asks to create a single X post or coherent thread from blog-draft.md and blog-review.md under the configured content workspace's .techcontent directory, preserving technical accuracy, adapting to X, avoiding unsupported reviewed claims, selecting single vs thread format, saving x-draft.md, and not researching, rewriting the blog, generating LinkedIn content, publishing, scheduling, or using X APIs.
 ---
 
 # Write X
@@ -33,7 +33,7 @@ Use this after `review-blog`:
 
 Store every X-writing run under:
 
-`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
+`<content-workspace>/.techcontent/<title-slug>/`
 
 Use the user-supplied title or subject as the folder name source. If the user provides an existing `.techcontent` folder path, write into that folder.
 

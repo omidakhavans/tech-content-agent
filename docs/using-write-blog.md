@@ -7,7 +7,7 @@ Its job is to transform `context-brief.md` into a grounded technical blog draft.
 Blog artifacts are stored under:
 
 ```text
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/
+<content-workspace>/.techcontent/<title-slug>/
 ```
 
 ## Invocation
@@ -21,7 +21,7 @@ Use $write-blog for: What I learned while building an AI rewrite feature.
 If the artifact folder already exists, you can point to it directly:
 
 ```text
-Use $write-blog with /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/what-i-learned-while-building-an-ai-rewrite-feature
+Use $write-blog with <content-workspace>/.techcontent/what-i-learned-while-building-an-ai-rewrite-feature
 ```
 
 ## Input

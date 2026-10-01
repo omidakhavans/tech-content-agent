@@ -1,6 +1,6 @@
 ---
 name: create-content
-description: Orchestrate the Phase 1 Personal Applied AI Engineering Content Agent workflow from one subject. Use when the user asks to create content end-to-end by coordinating tech-research-work, research-resources, build-evidence-context, write-blog, review-blog, write-linkedin, and write-x, saving a Markdown run summary under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, respecting stage status, stopping on insufficient evidence or needs_revision, and not reimplementing research, writing, review, publishing, scheduling, or social APIs.
+description: Orchestrate the Phase 1 Personal Applied AI Engineering Content Agent workflow from one subject. Use when the user asks to create content end-to-end by coordinating tech-research-work, research-resources, build-evidence-context, write-blog, review-blog, write-linkedin, and write-x, saving a Markdown run summary under the configured content workspace's .techcontent directory, respecting stage status, stopping on insufficient evidence or needs_revision, and not reimplementing research, writing, review, publishing, scheduling, or social APIs.
 ---
 
 # Create Content
@@ -45,7 +45,7 @@ Optional inputs:
 
 Store each run under:
 
-`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
+`<content-workspace>/.techcontent/<title-slug>/`
 
 Use the same slug convention as the component skills:
 

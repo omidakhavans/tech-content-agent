@@ -1,6 +1,6 @@
 ---
 name: tech-research-work
-description: Research a supplied technical writing subject against local project evidence, save Markdown research artifacts under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, and produce a structured report for later content-writing skills. Use when the user asks to investigate what they actually worked on in a repository, gather evidence from source code, Git history, commits, branches, diffs, docs, tests, configuration, local PR artifacts, or architecture notes, and separate verified facts from inference before writing content.
+description: Research a supplied technical writing subject against local project evidence, save Markdown research artifacts under the configured content workspace's .techcontent directory, and produce a structured report for later content-writing skills. Use when the user asks to investigate what they actually worked on in a repository, gather evidence from source code, Git history, commits, branches, diffs, docs, tests, configuration, local PR artifacts, or architecture notes, and separate verified facts from inference before writing content.
 ---
 
 # Tech Research Work
@@ -28,7 +28,7 @@ Use this as the first step in a larger content workflow:
 
 Store every research run under:
 
-`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
+`<content-workspace>/.techcontent/<title-slug>/`
 
 Use the user-supplied title or subject as the folder name source. Convert it to a filesystem-safe slug:
 

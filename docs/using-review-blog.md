@@ -7,7 +7,7 @@ Its job is to review `blog-draft.md` against both the article itself and `contex
 Review artifacts are stored under:
 
 ```text
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/
+<content-workspace>/.techcontent/<title-slug>/
 ```
 
 ## Invocation
@@ -21,7 +21,7 @@ Use $review-blog for: What I learned while building an AI rewrite feature.
 If the artifact folder already exists, you can point to it directly:
 
 ```text
-Use $review-blog with /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/what-i-learned-while-building-an-ai-rewrite-feature
+Use $review-blog with <content-workspace>/.techcontent/what-i-learned-while-building-an-ai-rewrite-feature
 ```
 
 ## Input

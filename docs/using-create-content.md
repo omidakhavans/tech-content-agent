@@ -42,23 +42,23 @@ Repository scope:
 Use $create-content for: WP-CLI migration task from v4 to v5.
 
 Repository scope:
-- /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins
+- /path/to/tech-content-agent
 
 Resources:
-- /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/resources-report.md
+- <content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/resources-report.md
 ```
 
 Expected artifacts:
 
 ```text
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/research-report.md
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/resources-report.md
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/context-brief.md
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/blog-draft.md
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/blog-review.md
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/linkedin-draft.md
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/x-draft.md
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/wp-cli-migration-task-from-v4-to-v5/content-run-summary.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/research-report.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/resources-report.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/context-brief.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/blog-draft.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/blog-review.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/linkedin-draft.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/x-draft.md
+<content-workspace>/.techcontent/wp-cli-migration-task-from-v4-to-v5/content-run-summary.md
 ```
 
 ## Output

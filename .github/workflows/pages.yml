@@ -29,6 +29,14 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: npm ci
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+      - name: Check public tree for local paths and obvious secrets
+        run: |
+          if git grep -nE '(/Users/|/home/|[A-Za-z]:\\\\Users\\\\|BEGIN [A-Z ]+PRIVATE KEY|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,})' -- . ':(exclude)package-lock.json' ':(exclude)AGENTS.md' ':(exclude)CLAUDE.md' ':(exclude).github/workflows/pages.yml'; then
+            echo 'Potential private path or credential found in tracked files.'
+            exit 1
+          fi
       - name: Validate types
         run: npm run typecheck
       - name: Build static site

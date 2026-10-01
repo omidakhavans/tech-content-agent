@@ -9,7 +9,7 @@ Transform `context-brief.md` into a readable article. Keep research separate fro
 
 ## Inputs and Supporting Guidance
 
-Use the supplied subject folder, otherwise `/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`. Read `context-brief.md`; if missing, request it or use raw reports only when the user explicitly directs a limited draft.
+Use the supplied subject folder, otherwise `<content-workspace>/.techcontent/<title-slug>/`. Read `context-brief.md`; if missing, request it or use raw reports only when the user explicitly directs a limited draft.
 
 Read [author context](../../content-skill-references/author-context.md), [article contract](../../content-skill-references/article-contract.md) and [dependency policy](../../content-skill-references/dependency-policy.md). For voice, consult [Humanizer](../../content-skill-dependencies/humanizer/SKILL.md) under that policy. Local instructions override conflicting dependency guidance.
 

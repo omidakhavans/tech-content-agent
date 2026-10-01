@@ -49,6 +49,8 @@ See [docs/development.mdx](./content/docs/development.mdx) for the website archi
 
 Keep skill behavior in `SKILL.md` and supporting Markdown contracts. When implementation changes affect workflow behavior, update the relevant docs and review the complete diff. Human review remains required before publishing content.
 
+Security guidance for Codex and Claude is in [AGENTS.md](./AGENTS.md), [CLAUDE.md](./CLAUDE.md), and [SECURITY.md](./SECURITY.md). Public examples use portable placeholders; real `.techcontent` artifacts and credentials must remain outside the repository.
+
 ## License
 
 No license file is currently present in the repository. Add one before distributing the project under an open-source license.

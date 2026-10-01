@@ -1,6 +1,6 @@
 ---
 name: build-evidence-context
-description: Combine completed research-work and research-resources Markdown outputs into a concise, evidence-grounded context package for later writing skills. Use when the user asks to bridge research and writing by reading research-report.md and resources-report.md under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, merging related findings, removing duplication, preserving evidence references, identifying unsupported claims, contradictions, strongest lessons, content angles, and saving context-brief.md without drafting final content.
+description: Combine completed research-work and research-resources Markdown outputs into a concise, evidence-grounded context package for later writing skills. Use when the user asks to bridge research and writing by reading research-report.md and resources-report.md under the configured content workspace's .techcontent directory, merging related findings, removing duplication, preserving evidence references, identifying unsupported claims, contradictions, strongest lessons, content angles, and saving context-brief.md without drafting final content.
 ---
 
 # Build Evidence Context
@@ -29,7 +29,7 @@ Use this after the research skills have produced one or both source artifacts:
 
 Store every context-building run under:
 
-`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
+`<content-workspace>/.techcontent/<title-slug>/`
 
 Use the user-supplied title or subject as the folder name source. Convert it to a filesystem-safe slug:
 

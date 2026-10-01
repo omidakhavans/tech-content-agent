@@ -9,7 +9,7 @@ Apply the requested revision to the author's current article. Preserve accepted 
 
 ## Inputs and Supporting Guidance
 
-Use the supplied article or conversation draft and its subject folder, otherwise `/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`. Read available `context-brief.md`, `draft-notes.md` and `blog-review.md`; an ordinary edit can proceed without a context brief, but missing evidence must not be invented.
+Use the supplied article or conversation draft and its subject folder, otherwise `<content-workspace>/.techcontent/<title-slug>/`. Read available `context-brief.md`, `draft-notes.md` and `blog-review.md`; an ordinary edit can proceed without a context brief, but missing evidence must not be invented.
 
 Read [author context](../../content-skill-references/author-context.md), [article contract](../../content-skill-references/article-contract.md) and [dependency policy](../../content-skill-references/dependency-policy.md). Consult [Copy Editing](../../content-skill-dependencies/copy-editing/SKILL.md) for meaningful prose revisions and [Humanizer](../../content-skill-dependencies/humanizer/SKILL.md) when improving voice. For structure or comprehension, use the local author-context guidance. A tiny formatting change does not require loading unrelated dependency guidance. Local instructions override conflicting dependency guidance.
 

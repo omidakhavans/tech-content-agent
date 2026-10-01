@@ -41,7 +41,7 @@ The source of truth for documentation remains Markdown/MDX and the existing skil
 All research and later content artifacts should be Markdown files stored under:
 
 ```text
-/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/
+<content-workspace>/.techcontent/<title-slug>/
 ```
 
 Current research artifacts:

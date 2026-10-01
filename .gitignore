@@ -4,3 +4,8 @@ out
 node_modules
 .source
 tsconfig.tsbuildinfo
+.techcontent
+.env
+.env.*
+!.env.example
+.claude

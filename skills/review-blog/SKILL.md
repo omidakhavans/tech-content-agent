@@ -9,7 +9,7 @@ Review `blog-draft.md` against `context-brief.md` and the author's current decis
 
 ## Inputs and Supporting Guidance
 
-Use the supplied subject folder, otherwise `/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`. A missing article requires an article; a missing context brief permits only an explicitly requested limited article-only editorial review.
+Use the supplied subject folder, otherwise `<content-workspace>/.techcontent/<title-slug>/`. A missing article requires an article; a missing context brief permits only an explicitly requested limited article-only editorial review.
 
 Read [author context](../../content-skill-references/author-context.md), [article contract](../../content-skill-references/article-contract.md), [rubric](../../content-skill-references/review-rubric.md) and [dependency policy](../../content-skill-references/dependency-policy.md). Consult [Copy Editing](../../content-skill-dependencies/copy-editing/SKILL.md) for focused editorial passes and [Humanizer](../../content-skill-dependencies/humanizer/SKILL.md) for voice concerns. Use the local audience-comprehension check for reader clarity; simulated reader/persona judgments do not verify facts. Local instructions override conflicting dependency guidance.
 

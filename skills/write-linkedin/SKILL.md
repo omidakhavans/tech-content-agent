@@ -1,6 +1,6 @@
 ---
 name: write-linkedin
-description: Transform a reviewed technical blog article into a LinkedIn post draft. Use when the user asks to create professional LinkedIn content from blog-draft.md and blog-review.md under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, preserving technical substance, adapting the story for LinkedIn, avoiding unsupported reviewed claims, distinguishing personal experience from general claims, saving linkedin-draft.md, and not researching, rewriting the canonical blog, publishing, or generating X content.
+description: Transform a reviewed technical blog article into a LinkedIn post draft. Use when the user asks to create professional LinkedIn content from blog-draft.md and blog-review.md under the configured content workspace's .techcontent directory, preserving technical substance, adapting the story for LinkedIn, avoiding unsupported reviewed claims, distinguishing personal experience from general claims, saving linkedin-draft.md, and not researching, rewriting the canonical blog, publishing, or generating X content.
 ---
 
 # Write LinkedIn
@@ -32,7 +32,7 @@ Use this after `review-blog`:
 
 Store every LinkedIn-writing run under:
 
-`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
+`<content-workspace>/.techcontent/<title-slug>/`
 
 Use the user-supplied title or subject as the folder name source. If the user provides an existing `.techcontent` folder path, write into that folder.
 

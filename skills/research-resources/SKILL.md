@@ -1,6 +1,6 @@
 ---
 name: research-resources
-description: Research external or supplied resources related to a technical writing subject, save Markdown resource research artifacts under /Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent, and produce a structured evidence report for later content-writing skills. Use when the user asks to inspect URLs, documentation, GitHub repositories, research papers, articles, tutorials, local Markdown/text notes, README files, course notes, or other explicitly supplied references and extract verifiable concepts, examples, claims, terminology, conflicts, and source-backed lessons without writing final content.
+description: Research external or supplied resources related to a technical writing subject, save Markdown resource research artifacts under the configured content workspace's .techcontent directory, and produce a structured evidence report for later content-writing skills. Use when the user asks to inspect URLs, documentation, GitHub repositories, research papers, articles, tutorials, local Markdown/text notes, README files, course notes, or other explicitly supplied references and extract verifiable concepts, examples, claims, terminology, conflicts, and source-backed lessons without writing final content.
 ---
 
 # Research Resources
@@ -28,7 +28,7 @@ Use this after `tech-research-work` or independently when the user wants resourc
 
 Store every resource research run under:
 
-`/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/`
+`<content-workspace>/.techcontent/<title-slug>/`
 
 Use the user-supplied title or subject as the folder name source. Convert it to a filesystem-safe slug:
 
