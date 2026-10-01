@@ -1,0 +1,18 @@
+---
+title: research-resources
+description: Research supplied or explicitly requested external resources.
+---
+
+# research-resources
+
+## Purpose
+
+Inspects URLs, documentation, repositories, papers, articles, or local notes and extracts source-backed concepts and claims without drafting final content.
+
+## Inputs and outputs
+
+Input is a subject plus supplied resources, or an explicit request to research externally. Output is `resources-report.md` under `.techcontent/<title-slug>/`, with inspected resources, concepts, terminology, conflicts, source references, and unknowns.
+
+## Relationships
+
+Use after or alongside `tech-research-work`. `build-evidence-context` combines this report with local work evidence. `create-content` skips this stage when no resources are supplied and external research was not requested.

@@ -1,0 +1,42 @@
+---
+title: Workflow
+description: The end-to-end content-generation sequence and its stop conditions.
+---
+
+# Workflow
+
+The normal path is:
+
+```text
+subject
+→ tech-research-work
+→ research-resources (when requested or supplied)
+→ build-evidence-context
+→ write-blog
+→ review-blog
+→ write-linkedin + write-x
+```
+
+## 1. Research the work
+
+`tech-research-work` inspects source, tests, configuration, docs, and Git history. It saves `research-report.md` and must not write the article.
+
+## 2. Research resources
+
+`research-resources` inspects user-supplied or explicitly requested external sources. If no resources are supplied and external research was not requested, `create-content` skips this stage and records the limitation.
+
+## 3. Build evidence context
+
+`build-evidence-context` merges the reports into a smaller `context-brief.md`. It keeps claim boundaries and identifies unsupported or uncertain material before writing begins.
+
+## 4. Write and review
+
+`write-blog` creates the canonical `blog-draft.md`. `review-blog` checks that exact file revision against the context brief and records a SHA-256 fingerprint in `blog-review.md`.
+
+## 5. Repurpose
+
+Only a matching, passing review allows `write-linkedin` and `write-x` to produce derivative drafts. If the review needs revision, use `edit-blog`, then review the new bytes again.
+
+## Stop conditions
+
+The orchestrator stops for insufficient work evidence, missing required inputs, an unsupported core claim, or `needs_revision`. These stops are recorded in `content-run-summary.md` so a later session can resume deliberately.

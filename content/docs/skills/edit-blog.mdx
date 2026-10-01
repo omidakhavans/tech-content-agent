@@ -1,0 +1,18 @@
+---
+title: edit-blog
+description: Revise the canonical article while preserving evidence boundaries.
+---
+
+# edit-blog
+
+## Purpose
+
+Applies bounded author feedback or review findings to the current article while preserving accepted content, history, and evidence constraints.
+
+## Inputs and outputs
+
+Input is the subject folder, `blog-draft.md`, available context/review files, and author feedback. Output is an updated `blog-draft.md`, a preserved snapshot under `history/`, and useful revision notes.
+
+## Relationships
+
+Use after `review-blog` finds a problem or an author requests a change. Any substantive edit makes the existing review stale; run `review-blog` again before derivatives.

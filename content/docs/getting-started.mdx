@@ -1,0 +1,46 @@
+---
+title: Getting started
+description: Run the Phase 1 workflow with Codex.
+---
+
+# Getting started
+
+## Prerequisites
+
+The repository is a Codex Skills project. Use a Codex session with the repository available as the working directory. The content skills save run artifacts outside the repository under `.techcontent` in the surrounding workspace.
+
+## Run the workflow
+
+Start with a subject that has clear local work evidence:
+
+```text
+Use $create-content for: What I learned while building an AI rewrite feature.
+```
+
+You can provide a repository scope, resources, or notes in the same request:
+
+```text
+Use $create-content for: WP-CLI migration task from v4 to v5.
+
+Repository scope:
+- /absolute/path/to/the/project
+
+Resources:
+- https://example.com/authoritative-reference
+```
+
+The orchestrator reuses valid artifacts when a subject folder already exists. It stops when work evidence is insufficient, required inputs are missing, or `review-blog` returns `needs_revision`.
+
+## Run an individual skill
+
+Each skill can be invoked directly, for example:
+
+```text
+Use $tech-research-work to research what I worked on for: What I learned while building an AI rewrite feature.
+```
+
+See the [skills index](./skills) for inputs, outputs, and ordering.
+
+## Human review
+
+All generated material is draft material. The workflow deliberately leaves a human review step before publishing. It does not publish to WordPress, LinkedIn, X, or another platform.

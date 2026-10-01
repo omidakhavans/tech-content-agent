@@ -1,0 +1,18 @@
+---
+title: review-blog
+description: Evaluate the exact article revision against its evidence context.
+---
+
+# review-blog
+
+## Purpose
+
+Checks grounding, technical reasoning, editorial quality, claim traceability, and the opening/conclusion against the author context. It is fallible evaluation, not proof of correctness.
+
+## Inputs and outputs
+
+Input is `blog-draft.md`, `context-brief.md`, author context, and the local review rubric. Output is `blog-review.md` with the article SHA-256, findings, scores, and either `needs_revision` or `ready_for_human_review`.
+
+## Relationships
+
+It gates `write-linkedin` and `write-x`. The review must identify the exact current `blog-draft.md`; any byte change invalidates its fingerprint.

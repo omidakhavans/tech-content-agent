@@ -1,0 +1,31 @@
+---
+title: Artifacts
+description: Markdown artifact paths, contracts, and revision identity.
+---
+
+# Artifacts
+
+Artifacts for a subject live under:
+
+```text
+/Users/a100200300/Local Sites/ai/app/public/wp-content/plugins/.techcontent/<title-slug>/
+```
+
+The main files are:
+
+| Artifact | Produced by | Role |
+| --- | --- | --- |
+| `research-report.md` | `tech-research-work` | Local implementation evidence |
+| `resources-report.md` | `research-resources` | External or supplied source evidence |
+| `context-brief.md` | `build-evidence-context` | Reduced writing context and claim boundaries |
+| `blog-draft.md` | `write-blog` / `edit-blog` | Canonical article |
+| `blog-review.md` | `review-blog` | Evidence-aware review of one exact article revision |
+| `linkedin-draft.md` | `write-linkedin` | LinkedIn draft |
+| `x-draft.md` | `write-x` | X single post or thread draft |
+| `content-run-summary.md` | `create-content` | Stage status, warnings, and handoff |
+
+## Revision identity
+
+`blog-draft.md` is the only current article. Before a substantive edit, the previous bytes are preserved under `history/`. A review is tied to the exact SHA-256 of the article it inspected. Any byte change makes that review stale until the article is checked again.
+
+Supporting files such as `claim-map.md`, `unknowns.md`, or `draft-notes.md` are optional and should only be created when they make the evidence trail clearer.

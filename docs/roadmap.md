@@ -30,6 +30,12 @@ It is functional as a Codex Skills-based workflow: a user can start with one sub
 
 Human review remains required before publishing.
 
+## Public website and documentation
+
+The repository now includes a static Next.js website and Fumadocs MDX documentation under `app/`, `components/`, `content/docs/`, and `lib/`. GitHub Actions builds and deploys the committed site to GitHub Pages on pushes to `main`; it does not call an LLM or rewrite documentation in CI.
+
+The source of truth for documentation remains Markdown/MDX and the existing skill contracts. A future `document-project` skill can inspect diffs and update affected pages as a reviewed code change, but autonomous documentation commits are intentionally out of scope.
+
 ## Artifact Convention
 
 All research and later content artifacts should be Markdown files stored under:

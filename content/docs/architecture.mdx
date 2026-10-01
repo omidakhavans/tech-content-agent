@@ -1,0 +1,37 @@
+---
+title: Architecture
+description: The current skill-first architecture and its evidence boundaries.
+---
+
+# Architecture
+
+Phase 1 keeps orchestration, evidence, writing, and review separate. Codex supplies runtime judgment; the repository supplies repeatable contracts.
+
+```mermaid
+flowchart LR
+    A[Subject] --> B[tech-research-work]
+    A --> C[research-resources]
+    B --> D[research-report.md]
+    C --> E[resources-report.md]
+    D --> F[build-evidence-context]
+    E --> F
+    F --> G[context-brief.md]
+    G --> H[write-blog]
+    H --> I[blog-draft.md]
+    I --> J[review-blog]
+    G --> J
+    J --> K{ready for human review?}
+    K -->|yes| L[write-linkedin + write-x]
+    K -->|no| M[edit-blog]
+```
+
+## Design boundaries
+
+- Skills have one focused responsibility and a Markdown output contract.
+- `create-content` coordinates existing skills; it does not duplicate their logic.
+- Research labels verified evidence, interpretation, and unknowns.
+- `review-blog` is a quality gate, not proof of correctness.
+- Social skills transform the reviewed canonical article instead of reconstructing it.
+- Human review remains required before publication.
+
+The repository intentionally does not introduce LangChain, LangGraph, RAG, a vector database, queues, publishing APIs, or custom runtime infrastructure.

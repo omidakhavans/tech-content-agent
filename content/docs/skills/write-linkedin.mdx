@@ -1,0 +1,18 @@
+---
+title: write-linkedin
+description: Transform a passing canonical article into a LinkedIn draft.
+---
+
+# write-linkedin
+
+## Purpose
+
+Adapts the reviewed canonical article for LinkedIn without independently researching or reconstructing the story.
+
+## Inputs and outputs
+
+Input is `blog-draft.md` and a matching, passing `blog-review.md`; `context-brief.md` is consulted only when needed. Output is `linkedin-draft.md` with status `draft_for_review`.
+
+## Relationships
+
+It runs after `review-blog` and shares its evidence boundary. It never publishes or calls LinkedIn APIs.

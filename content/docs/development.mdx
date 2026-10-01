@@ -1,0 +1,53 @@
+---
+title: Development
+description: Repository conventions and the public website implementation.
+---
+
+# Development
+
+## Existing project conventions
+
+Skills live in `skills/<skill-name>/SKILL.md`. Their agent-facing metadata lives beside them in `agents/openai.yaml`; supporting formats and policy live under `references/` or `content-skill-references/`.
+
+The content workflow is intentionally inspectable. Keep important behavior in Markdown contracts and avoid moving project knowledge into website-only components.
+
+## Website architecture
+
+The public site lives at the repository root and uses Next.js App Router, TypeScript, Tailwind CSS, Fumadocs MDX, and static export. Marketing content is in `app/page.tsx`; documentation source is in `content/docs/*.mdx`; the Fumadocs source adapter is `lib/source.ts`.
+
+Run it locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Build the static site:
+
+```bash
+npm run typecheck
+npm run build
+```
+
+The exported site is written to `out/`.
+
+## Adding a documentation page
+
+Create a predictable MDX file under `content/docs`, with frontmatter:
+
+```mdx
+---
+title: A useful page
+description: What this page explains.
+---
+
+# A useful page
+```
+
+The page is discovered by Fumadocs and appears in the documentation sidebar. Keep diagrams as Mermaid fences when they explain a real relationship, and keep commands grounded in repository behavior.
+
+## GitHub Pages and future hosting
+
+GitHub Actions sets `GITHUB_ACTIONS=true` during deployment. `next.config.mjs` derives the project-site `basePath` from `GITHUB_REPOSITORY`, while local development stays at `/`. Next.js `Link` handles the base path for internal navigation.
+
+Moving to Vercel later should be small: remove or conditionally disable `output: 'export'`, `basePath`, and `assetPrefix` for the deployment environment. The App Router, MDX content, and Fumadocs source layer can remain in place.
