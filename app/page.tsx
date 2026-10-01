@@ -4,7 +4,7 @@ import { SiteHeader } from '@/components/site-header';
 import { Workflow } from '@/components/workflow';
 
 const skills = ['tech-research-work', 'research-resources', 'build-evidence-context', 'write-blog', 'edit-blog', 'review-blog', 'write-linkedin', 'write-x', 'create-content'];
-const telegramPostBotDownload = 'https://github.com/omidakhavans/Telegram-Post-Bot/releases/latest/download/telegram-post-bot.zip';
+const telegramPostBotDownload = 'https://github.com/omidakhavans/telegram-post-bot/releases/latest/download/telegram-post-bot.zip';
 
 export default function HomePage() {
   return <main>
